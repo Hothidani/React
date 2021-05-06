@@ -28,7 +28,8 @@ const Routers = [
 			path : '/Service',	
 			exact : true,	
 			main : ({match})=> <Service match={match} />
-		},  {		
+		},  
+		{		
 			path : '/AllProduct',	
 			exact : true,	
 			main : ({match})=> <AllProduct match={match} />
