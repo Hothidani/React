@@ -17,6 +17,7 @@ class App extends Component {
           <li><Link to="/About" style = {colorWord} >About</Link></li>
           <li> <Link to="/Service" style = {colorWord}>Service</Link></li>
           <li> <Link to="/Contact" style = {colorWord}>Contact</Link></li>
+          <li> <Link to="/AllP{roduct" style = {colorWord}>AllProduct</Link></li>
         </ul>
         </nav>
         <Switch>
