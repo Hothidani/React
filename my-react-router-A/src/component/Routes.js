@@ -5,6 +5,8 @@ import Home from './Home'
 import About from './About';
 import Service from './Service';
 import Contact from './Contact';
+import AllProduct from './AllProduct';
+import Add from './Add';
 
 const Routers = [			
 	{		
@@ -27,8 +29,18 @@ const Routers = [
 			path : '/Service',	
 			exact : true,	
 			main : ({match})=> <Service match={match} />
-		}
-			
+		}, 
+		{		
+		  path : '/AllProduct',	
+		  exact : true,	
+		  main : ({match})=> <AllProduct match={match} />
+	  }
+	  , 
+	  {		
+		path : '/Add',	
+		exact : true,	
+		main : ({match})=> <Add match={match} />
+	}
 
 
 ]	
