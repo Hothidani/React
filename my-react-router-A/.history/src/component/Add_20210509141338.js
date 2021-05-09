@@ -20,17 +20,17 @@ class Add extends Component {
 
     
 
-onSubmit(e) {
-	e.preventDefault();
-	const product = {
-		product_name: this.state.product_name,
-		product_pic: this.state.product_pic,
-        price: this.state.price,
-        describe: this.state.describe
-	}
-	axios.post('https://6093b5e8a7e53a001795161e.mockapi.io/Products', product)
-	.then(res => console.log(res.data));
-}
+// onSubmit(e) {
+// 	e.preventDefault();
+// 	const product = {
+// 		product_name: this.state.product_name,
+// 		product_pic: this.state.product_pic,
+//         price: this.state.price,
+//         describe: this.state.describe
+// 	}
+// 	axios.post('https://6093b5e8a7e53a001795161e.mockapi.io/Products', product)
+// 	.then(res => console.log(res.data));
+// }
 
     componentWillMount() {
 
@@ -78,49 +78,49 @@ onSubmit(e) {
     //     );
     // }
 
-    // OnSave = (e) => {
-    //     e.preventDefault();
-    //     var {
-    //         id, product_name, product_pic, describe, price
-    //     } = this.state;
-    //     var { history } = this.props;
-    //     if (id) {
-    //         axios({
-    //             method: 'PUT',
-    //             url: 'https://6093b5e8a7e53a001795161e.mockapi.io/Products/${id}',
-    //             data: {
-    //                 product_name: product_name,
-    //                 price: price,
-    //                 product_pic: product_pic,
-    //                 describe: describe
-    //             }
-    //         }).then(res => {
-    //             toast.success("Cap nhat thanh cong")
-    //         })
-    //         history.goBack();
-    //     }
-    // else{
-    //     if(product_name ==='' && product_pic ===''&& price ==='' && 
-    //     describe ==='')
-    //     {
-    //         toast.warn("Nhap day du noi dung", {});
-    //     }else{
-    //         axios({
-    //             method: 'PUT',
-    //             url: 'https://6093b5e8a7e53a001795161e.mockapi.io/Products/${id}',
-    //             data: {
-    //                 product_name: product_name,
-    //                 price: price,
-    //                 product_pic: product_pic,
-    //                 describe: describe
-    //             }
-    //         }).then(res => {
-    //             toast.success("Them thanh cong")
-    //         })
-    //         history.goBack();
-    //     }
-    // }
-    // }
+    OnSave = (e) => {
+        e.preventDefault();
+        var {
+            id, product_name, product_pic, describe, price
+        } = this.state;
+        var { history } = this.props;
+        if (id) {
+            axios({
+                method: 'PUT',
+                url: 'https://6093b5e8a7e53a001795161e.mockapi.io/Products/${id}',
+                data: {
+                    product_name: product_name,
+                    price: price,
+                    product_pic: product_pic,
+                    describe: describe
+                }
+            }).then(res => {
+                toast.success("Cap nhat thanh cong")
+            })
+            history.goBack();
+        }
+    else{
+        if(product_name ==='' && product_pic ===''&& price ==='' && 
+        describe ==='')
+        {
+            toast.warn("Nhap day du noi dung", {});
+        }else{
+            axios({
+                method: 'PUT',
+                url: 'https://6093b5e8a7e53a001795161e.mockapi.io/Products/${id}',
+                data: {
+                    product_name: product_name,
+                    price: price,
+                    product_pic: product_pic,
+                    describe: describe
+                }
+            }).then(res => {
+                toast.success("Them thanh cong")
+            })
+            history.goBack();
+        }
+    }
+    }
    
 
 componentWillReceiveProps(nextProps) {
@@ -146,7 +146,7 @@ componentWillUnmount() {
 render() {
     return (
         <div>
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.OnSave}>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Ten San Pham</label>
                     <input type="text" className="col-sm-4" id="tensp" placeholder="" />
@@ -163,7 +163,7 @@ render() {
                     <label htmlFor="exampleInputEmail1">Mo Ta San Pham</label>
                     <input type="text" className="col-sm-4" id="motasp" placeholder=""  />
                 </div>
-                <button type="submit" className="btn btn-primary  " onclick={this.onSubmit}>Save</button>
+                <button type="submit" className="btn btn-primary  " onclick={this.OnSave}>Save</button>
                 <button type="button" onclick={this.OnClear} className="btn btn-danger">Clear</button>
                 <NavLink to="/AllProduct" className="btn btn-success">Back</NavLink>
 

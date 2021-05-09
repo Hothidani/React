@@ -194,8 +194,6 @@
 // export default AllProduct;
 
 
- import { NavLink } from 'react-router-dom';
- import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import React, { Component } from 'react';
@@ -280,36 +278,43 @@ class AllProduct extends Component {
         return (
             <React.Fragment>
                 <div>
-                <div className="d-inline">
-                                           <NavLink to={`/Add`} >
-                                                <button className="btn btn-info ">Add <i className="fa fa-chevron-right" /></button>
-                                               <div className="clearfix" />
-                                           </NavLink >                   
-               </div>
                     <div>
                     <form onSubmit={this.onSave}>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Ten San Pham</label>
-                    <input type="text" className="col-sm-4" id="tensp" placeholder=""  onChange={this.onChange} />
+                    <input type="text" className="col-sm-4" id="tensp" placeholder="" value={this.state.product_name} onChange={this.onChange} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Gia San Pham</label>
-                    <input type="number" className="col-sm-4" id="giasp" placeholder=""  onChange={this.onChange}/>
+                    <input type="number" className="col-sm-4" id="giasp" placeholder="" value={this.state.price} onChange={this.onChange}/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Chon Anh</label>
-                    <input type="file" className="col-sm-4" id="anhsp" placeholder="" onChange={this.onChange} />
+                    <input type="file" className="col-sm-4" id="anhsp" placeholder=""value={this.state.product_pic} onChange={this.onChange} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Mo Ta San Pham</label>
-                    <input type="text" className="col-sm-4" id="motasp" placeholder="" onChange={this.onChange}  />
+                    <input type="text" className="col-sm-4" id="motasp" placeholder=""value={this.state.describe} onChange={this.onChange}  />
                 </div>
                 <button type="submit" className="btn btn-primary  ">Save</button>
                 <button type="button" onclick={this.onClear} className="btn btn-danger">Clear</button>
                 <button type="button" onClick={this.onUpdate}  className="btn btn-success">Update</button>
 
             </form>
-                    
+                        <form onSubmit={this.onSave}>
+
+                            Name:
+                            <input type='text' name="name" value={this.state.product_name} onChange={this.onChange} /><br /><br />
+                            Type:
+                            <input type='text' name="type" value={this.state.price} onChange={this.onChange} /><br /><br />
+                            Quantity:
+                            <input type='text' name="quantity" value={this.state.describe} onChange={this.onChange} /><br /><br />
+                            <div>
+                                <button type="button" onClick={this.onClear} className="btn bt-primary">Clear</button>
+                                <button type="submit" className="btn bt-primary">Add</button>
+                                <button type="button" onClick={this.onUpdate} className="btn bt-primary">Update</button>
+                            </div>
+                        </form>
                     </div>
                     {this.state.products.map(element => {
                         return (

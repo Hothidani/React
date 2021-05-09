@@ -28,7 +28,7 @@ onSubmit(e) {
         price: this.state.price,
         describe: this.state.describe
 	}
-	axios.post('https://6093b5e8a7e53a001795161e.mockapi.io/Products', product)
+	axios.post('https://6093b5e8a7e53a001795161e.mockapi.io/Products')
 	.then(res => console.log(res.data));
 }
 

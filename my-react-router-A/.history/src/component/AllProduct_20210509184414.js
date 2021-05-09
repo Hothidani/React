@@ -294,15 +294,15 @@ class AllProduct extends Component {
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Gia San Pham</label>
-                    <input type="number" className="col-sm-4" id="giasp" placeholder=""  onChange={this.onChange}/>
+                    <input type="number" className="col-sm-4" id="giasp" placeholder="" value={this.state.price} onChange={this.onChange}/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Chon Anh</label>
-                    <input type="file" className="col-sm-4" id="anhsp" placeholder="" onChange={this.onChange} />
+                    <input type="file" className="col-sm-4" id="anhsp" placeholder=""value={this.state.product_pic} onChange={this.onChange} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Mo Ta San Pham</label>
-                    <input type="text" className="col-sm-4" id="motasp" placeholder="" onChange={this.onChange}  />
+                    <input type="text" className="col-sm-4" id="motasp" placeholder=""value={this.state.describe} onChange={this.onChange}  />
                 </div>
                 <button type="submit" className="btn btn-primary  ">Save</button>
                 <button type="button" onclick={this.onClear} className="btn btn-danger">Clear</button>

@@ -6,7 +6,6 @@ import About from './About';
 import Service from './Service';
 import Contact from './Contact';
 import AllProduct from './AllProduct';
-import Edit from './Edit';
 import Add from './Add';
 
 const Routers = [			
@@ -42,12 +41,6 @@ const Routers = [
 		exact : true,	
 		main : ({match})=> <Add match={match} />
 	}
-	, 
-	{		
-	  path : '/Edit',	
-	  exact : true,	
-	  main : ({match})=> <Edit match={match} />
-  }
 
 
 ]	
