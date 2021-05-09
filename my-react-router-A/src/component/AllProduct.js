@@ -110,10 +110,16 @@ class AllProduct extends Component {
             [name]: value
         });
     }
+    
+delete(e) {
+	e.preventDefault();
+	axios.delete('https://6093b5e8a7e53a001795161e.mockapi.io/Products')
+	.then(res => console.log(res.data));
+}
 
 
     render() {
-        var { product,keyword } = this.state;	
+        var { product, keyword } = this.state;
         return (
             <div>
                 {this.state.product.map((product) => {
@@ -136,7 +142,11 @@ class AllProduct extends Component {
                                     </div>
                                     <div className="single-item-caption mt-1 ml-5">
                                         <a className="add-to-cart pull-left"><i className="fa fa-shopping-cart" /></a>
-                                        <div className="d-inline">
+
+                                        <button type="submit" className="btn btn-primary  " onclick={this.onSubmit}>Update</button>
+                                        <button type="submit" onclick={this.delete} className="btn btn-danger">Delete</button>
+                                        <NavLink to="/AllProduct" className="btn btn-success">View</NavLink>
+                                        {/* <div className="d-inline">
                                             <NavLink to={`/Add`} >
                                                 <button className="btn btn-info ">Add <i className="fa fa-chevron-right" /></button>
                                                 <div className="clearfix" />
@@ -147,7 +157,7 @@ class AllProduct extends Component {
                                                 <button className="btn btn-info ">Details <i className="fa fa-chevron-right" /></button>
                                                 <div className="clearfix" />
                                             </NavLink>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>

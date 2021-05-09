@@ -18,6 +18,20 @@ class Add extends Component {
 
     }
 
+    
+
+onSubmit(e) {
+	e.preventDefault();
+	const product = {
+		product_name: this.state.product_name,
+		product_pic: this.state.product_pic,
+        price: this.state.price,
+        describe: this.state.describe
+	}
+	axios.post('https://6093b5e8a7e53a001795161e.mockapi.io/Products', product)
+	.then(res => console.log(res.data));
+}
+
     componentWillMount() {
 
     }
@@ -149,7 +163,7 @@ render() {
                     <label htmlFor="exampleInputEmail1">Mo Ta San Pham</label>
                     <input type="text" className="col-sm-4" id="motasp" placeholder="" value={this.OnChage} />
                 </div>
-                <button type="submit" className="btn btn-primary  ">Save</button>
+                <button type="submit" className="btn btn-primary  " onclick={this.onSubmit}>Save</button>
                 <button type="button" onclick={this.OnClear} className="btn btn-danger">Clear</button>
                 <NavLink to="/AllProduct" className="btn btn-success">Back</NavLink>
 
