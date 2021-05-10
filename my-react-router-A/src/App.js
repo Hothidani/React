@@ -11,16 +11,16 @@ class App extends Component {
   render() {
     return (
       <Router>
-
+{/* className="d-inline" */}
         <nav>
           <h2>HELLO</h2>
           <ul className="nav-link">
-            <li className="d-inline"><Link to="/" style={colorWord}>Home</Link></li>
-            <li className="d-inline"><Link to="/About" style={colorWord} >About</Link></li>
-            <li className="d-inline"> <Link to="/Service" style={colorWord}>Service</Link></li>
-            <li className="d-inline"> <Link to="/Contact" style={colorWord}>Contact</Link></li>
-            <li className="d-inline"> <Link to="/AllProduct" style={colorWord}>AllProduct</Link></li>
-            <li className="d-inline"> <Link to="/Edit" style={colorWord}>Edit</Link></li>
+            <li ><Link to="/" style={colorWord}>Home</Link></li>
+            <li ><Link to="/About" style={colorWord} >About</Link></li>
+            <li > <Link to="/Service" style={colorWord}>Service</Link></li>
+            <li > <Link to="/Contact" style={colorWord}>Contact</Link></li>
+            <li > <Link to="/AllProduct" style={colorWord}>AllProduct</Link></li>
+            <li > <Link to="/Edit" style={colorWord}>Edit</Link></li>
           </ul>
         </nav>
         <Switch>

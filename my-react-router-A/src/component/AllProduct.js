@@ -238,18 +238,27 @@ class AllProduct extends Component {
     onSave = (event) => {
         event.preventDefault();
         const pro = {
-            product_name: this.state.product_name,
+        product_name: this.state.product_name,
 		product_pic: this.state.product_pic,
         price: this.state.price,
         describe: this.state.describe
         };
-        axios.post(`https://6093b5e8a7e53a001795161e.mockapi.io/Products`, pro)
+        axios({
+            method: 'POST',
+            url: `https://6093b5e8a7e53a001795161e.mockapi.io/Products`,
+            data: pro
+        }).then(res => {
+           res.data = pro;
+           alert("Đã thêm một sản phẩm thành công")
+        }).catch(err => {
+        });
+       /* axios.post(`https://6093b5e8a7e53a001795161e.mockapi.io/Products`, pro)
             .then(res => {
                 alert("Đã thêm một sản phẩm thành công")
                 console.log(res);
                 console.log(res.data);
             })
-        this.state.products.push(pro);
+        this.state.products.push(pro);*/
     }
 
     componentDidMount() {
@@ -265,16 +274,41 @@ class AllProduct extends Component {
         });
     }
 
-    onDelete = event => {
-        console.log(this.state.products[0].id);
-        event.preventDefault();
-        axios.delete(`https://6093b5e8a7e53a001795161e.mockapi.io/Products/${this.state.products[0].id}`)
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-            })
-    }
+    // onDelete = (product_name )=> {
+    //    // console.log(this.state.products[0].id);
+    //     var id ;
+    //   this.setState({
+    //     res:this.state.res.filter(item=>item.name!=product_name)
+    //   })
+    //   this.state.res.map((item,index)=>{
+    //     if(item.name === product_name){
+    //         id = index;
+    //     }
+    //   }
+    //   )
+    //   product_name.preventDefault();
+    //     axios.delete(`https://6093b5e8a7e53a001795161e.mockapi.io/Products/${id}`)
+    //         .then(res => {
+    //             console.log(res);
+    //             console.log(res.data);
+    //         })
+    // }
 
+
+    onDelete = (id) => {
+        alert ("Delete");
+        this.setState({
+          products:this.state.products.filter(item=>item.id!=id)
+        })
+       axios({
+          method: 'DELETE',
+          url:`https://6093b5e8a7e53a001795161e.mockapi.io/Products/${id}`,
+      }).then (res =>{
+          console.log(res);
+          console.log(res.data);
+      }).catch(err =>{
+      })   
+      }
 
     render() {
         return (
@@ -288,25 +322,26 @@ class AllProduct extends Component {
                </div>
                     <div>
                     <form onSubmit={this.onSave}>
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Ten San Pham</label>
-                    <input type="text" className="col-sm-4" id="tensp" placeholder=""  onChange={this.onChange} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Gia San Pham</label>
-                    <input type="number" className="col-sm-4" id="giasp" placeholder=""  onChange={this.onChange}/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Chon Anh</label>
-                    <input type="file" className="col-sm-4" id="anhsp" placeholder="" onChange={this.onChange} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Mo Ta San Pham</label>
-                    <input type="text" className="col-sm-4" id="motasp" placeholder="" onChange={this.onChange}  />
-                </div>
-                <button type="submit" className="btn btn-primary  ">Save</button>
-                <button type="button" onclick={this.onClear} className="btn btn-danger">Clear</button>
-                <button type="button" onClick={this.onUpdate}  className="btn btn-success">Update</button>
+                    <div className="form-group">
+                        <h2>{this.state.product_name}</h2>
+                        <label  >Ten San Pham</label>
+                        <input name="product_name" type="text" className="col-sm-4" id="tensp" placeholder="Nhap ten sp"  onChange={this.onChange} />
+                    </div>
+                    <div className="form-group">
+                        <label  >Gia San Pham</label>
+                        <input name="price" type="number" className="col-sm-4" id="giasp" placeholder="Nhap gia"  onChange={this.onChange}/>
+                    </div>
+                    <div className="form-group">
+                        <label  >Chon Anh</label>
+                        <input name="product_pic" ref={(input) =>{this.product_pic= input}} type="file" className="col-sm-4" id="anhsp" placeholder="" onChange={this.onChange} />
+                    </div>
+                    <div className="form-group">
+                        <label  >Mo Ta San Pham</label>
+                        <input name="describe" type="text" className="col-sm-4" id="motasp" placeholder="Mo ta sp" onChange={this.onChange}  />
+                    </div>
+                    <button type="submit"  className="btn btn-primary  ">Save</button>
+                    <button type="button" onclick={this.onClear} className="btn btn-danger">Clear</button>
+                    <button type="button" onClick={this.onUpdate}  className="btn btn-success">Update</button>
 
             </form>
                     
@@ -319,8 +354,10 @@ class AllProduct extends Component {
                                 <p>{element.price}</p>
                                 <p>{element.describe}</p>
                                 <img src={element.product_pic} alt="" height="300" width="500" />
-                                <input type="button" value="Edit" onClick={this.onEdit} />
-                                <input type="button" value="Delete" onClick={this.onDelete} />
+                                <div>
+                                    <button type="button" onClick={this.onEdit}  className="btn btn-success">Edit</button>
+                                    <button type="button"  onClick={()=>this.onDelete(element.id)} className="btn btn-danger">Delete</button>
+                                </div>
                             </div>
                         );
                     })}
