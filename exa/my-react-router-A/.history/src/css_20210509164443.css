@@ -1,0 +1,110 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: white;
+    text-rendering: optimizeLegibility;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.form-control {
+    border-radius: 40px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+}
+
+.content-input {
+    width: 500px;
+    /* background: #00FFFF; */
+}
+
+.content-input-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-input-footer {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-logo {
+    display: flex;
+    justify-content: center;
+}
+
+input[class=form-control] {
+    background: transparent;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border: 1px solid none;
+    color: #BB0000;
+    width: 100%;
+    padding-left: 10px;
+}
+
+input[class=form-control]:focus {
+    outline: none;
+    background: #99FFFF;
+    border: 1px solid #2da8d9;
+    color: #f33838;
+}
+
+input[class=form-control]:hover {
+    background: #CCFFFF;
+    border: 1px solid #2da8d9;
+}
+
+.content-input-wrap {
+    border-radius: 10px;
+    border: rgb(120, 199, 223);
+    background-color: rgba(156, 212, 210, 0.4);
+    position: relative;
+    color: rgba(255, 255, 255, 0.2);
+    /* box-shadow: 0px 20px 20px rgb(0 0 0 / 10%), 0px 30px 26px rgb(0 0 0 / 10%); */
+}
+
+.content-input-wrap h3 {
+    font-weight: 300;
+    color: #2da8d9;
+}
+
+.content-input-wrap .social {
+    width: 100%;
+}
+
+.content-input-wrap .social a {
+    width: 100%;
+    display: block;
+    border: 1px solid #00FFFF;
+    color: rgba(243, 75, 9, 0.2);
+    background: #99CCFF;
+}
+
+.content-input-wrap .social a:hover {
+    background: rgba(214, 106, 5, 0.2);
+    color: rgba(255, 255, 255, 0.2);
+    border-color: #00FFFF;
+}
+
+.buttonn{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 10vh;
+
+}
