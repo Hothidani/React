@@ -39,7 +39,7 @@
       "id": "6",
       "product_name": "product_name 6",
       "price": 60,
-      "product_pic": "https://29foods.com/media/news/269_ca_thu_kho.jpg",
+      "product_pic": "http://pppre.s3.amazonaws.com/3374793288e5880f/a/d9ddac857ead40b4a838ff17830c6e28.jpg",
       "describe": "describe 6"
     },
     {
@@ -71,25 +71,11 @@
       "describe": "describe 10"
     },
     {
-      "product_name": "sang sang sang",
-      "product_pic": "/Images/favicon.ico",
-      "price": "1212",
-      "describe": "fdggyh",
-      "id": "VPatp_i"
-    },
-    {
-      "product_name": "sang",
-      "product_pic": "./Images/matcuoi.png",
-      "price": "4365",
-      "describe": "fdge",
-      "id": "Z1dXmXT"
-    },
-    {
-      "product_name": "khua",
-      "product_pic": "./Images/Screenshot (1).png",
-      "price": "1",
-      "describe": "dsgfdg",
-      "id": "ggqAyz-"
+      "product_name": "vcxfdfdssd",
+      "product_pic": "C:\\fakepath\\icon-mat-cuoi-noi-toan-the-gioi-nhung-cha-de-cua-no-chi-duoc-tra-$45-af6084.png",
+      "price": "3435",
+      "describe": "dfsgdfsgd",
+      "id": "FbNPwG7"
     }
   ],
   "users": [

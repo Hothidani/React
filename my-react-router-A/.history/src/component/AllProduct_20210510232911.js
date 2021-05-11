@@ -219,14 +219,13 @@ class AllProduct extends Component {
     onChange = (event) => {
         var target = event.target;
         var nam = target.name;
-        var value = target.value;
-        var type =target.type;
+        var val = target.value;
         if(type === 'file')
         {
-            value = this.product_pic.value.replace(/C:\\fakepath\\/i,"./Images/");
+            value = this.product_pic.value.replace(/C:\\fakepath\\/i,"/Images/");
         }
         this.setState({
-            [nam]: value
+            [nam]: val
         });
     }
 
@@ -239,51 +238,6 @@ class AllProduct extends Component {
             product_pic:''
         });
     }
-
-    Update= ()=>{      
-        let data = this.state.products;      
-        data.map((item,index)=>{                
-            if(this.state.id===item.id){                  
-                alert ("Id: "+item.id);                  
-                item.product_name= this.state.product_name;                  
-                item.product_pic= this.state.product_pic;                    
-                item.price = parseInt(this.state.price);                  
-                item.describe= this.state.describe;                  
-                axios({                    
-                    method: 'PUT',                    
-                    url:`http://localhost:3000/Products/${item.id}`,                    
-                    data:{                      
-                        product_name: this.state.product_name,
-                        product_pic: this.state.product_pic,
-                        price: this.state.price,
-                        describe: this.state.describe               
-                    }                
-                }).then (res =>{                  
-                    this.setState({                    
-                        products:data,                    
-                        id: '',
-                        product_name: '',
-                        price: '',
-                        describe: '',
-                        product_pic:''                    
-                    })                   
-                     res.data = this.state.products;               
-                 }).catch(err =>
-                    {                            
-                    })                
-            }            
-        }        
-        )      //set update items      
-        this.setState({         
-            products:data,         
-            id: '',
-            product_name: '',
-            price: '',
-            describe: '',
-            product_pic:'',         
-                 
-         })        
-       }
 
     onSave = (event) => {
         event.preventDefault();
@@ -386,7 +340,7 @@ class AllProduct extends Component {
                                 <p>{element.describe}</p>
                                 <img src={element.product_pic} alt="" height="300" width="500" />
                                 <div>
-                                    <button type="button" onClick={this.Update}  className="btn btn-success">Edit</button>
+                                    <button type="button" onClick={this.onEdit}  className="btn btn-success">Edit</button>
                                     <button type="button"  onClick={()=>this.onDelete(element.id)} className="btn btn-danger">Delete</button>
                                 </div>
                             </div>

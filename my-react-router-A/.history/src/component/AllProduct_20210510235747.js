@@ -240,7 +240,7 @@ class AllProduct extends Component {
         });
     }
 
-    Update= ()=>{      
+    updateItem = ()=>{      
         let data = this.state.products;      
         data.map((item,index)=>{                
             if(this.state.id===item.id){                  
@@ -386,7 +386,7 @@ class AllProduct extends Component {
                                 <p>{element.describe}</p>
                                 <img src={element.product_pic} alt="" height="300" width="500" />
                                 <div>
-                                    <button type="button" onClick={this.Update}  className="btn btn-success">Edit</button>
+                                    <button type="button" onClick={this.onEdit}  className="btn btn-success">Edit</button>
                                     <button type="button"  onClick={()=>this.onDelete(element.id)} className="btn btn-danger">Delete</button>
                                 </div>
                             </div>
